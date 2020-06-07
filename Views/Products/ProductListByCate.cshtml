@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "ProductListByCate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model DACN_SalePhone_Final.Models.ProductListByCategories
+<!-- page -->
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="@Url.Action("Index","Home")">Home</a>
+                    <i>|</i>
+                </li>
+                <li>@ViewBag.cateSeries</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //page -->
+<!-- top Products -->
+<div class="ads-grid py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+            <span>@ViewBag.cateSeries</span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="row">
+            <!-- product  -->
+            <div class="agileinfo-ads-display" style="width:100%">
+                <div class="wrapper">
+                    <!-- first section -->
+                    <div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
+                        <div class="row">
+                            @foreach (var item in Model.productInfo)
+                            {
+                                <div class="col-md-3 product-men">
+                                    <div class="men-pro-item simpleCart_shelfItem">
+                                        <div class="men-thumb-item text-center">
+                                            <img src="@item.productIcon" alt="">
+                                            <div class="men-cart-pro">
+                                                <div class="inner-men-cart-pro">
+                                                    <a href=" @Url.Action("ProductDetail", "Products", new { prodId = item.productID }) " class="link-product-add-cart">Quick View</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-info-product text-center border-top mt-4">
+                                            <h4 class="pt-1">
+                                                <a href="@Url.Action("ProductDetail", "Products", new { prodId = item.productID })">@item.productName</a>
+                                            </h4>
+                                            <div class="info-product-price my-2">
+                                                <span class="item_price">@item.productPrice VND</span>
+                                                <del>@item.productReprice VND</del>
+                                            </div>
+                                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                                @*<input type="button" name="AddToCart" value="Add to cart" id="btnAddToCart" class="button btn" itemid="@item.productID" itemscope onclick="AddToCart(this)" />*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <!-- //first section -->
+                </div>
+            </div>
+            <!-- //product  -->
+        </div>
+    </div>
+</div>
+<!-- //top products -->

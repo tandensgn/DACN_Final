@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="qlbdtDbModelStoreContainer" CdmEntityContainer="qlbdtDbEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="qlbdtDbModel.category">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="cate_id" ColumnName="cate_id" />
+          <ScalarProperty Name="cate_series" ColumnName="cate_series" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="colorlists">
+      <EntityTypeMapping TypeName="qlbdtDbModel.colorlist">
+        <MappingFragment StoreEntitySet="colorlist">
+          <ScalarProperty Name="co_id" ColumnName="co_id" />
+          <ScalarProperty Name="co_name" ColumnName="co_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="colorproducts">
+      <EntityTypeMapping TypeName="qlbdtDbModel.colorproduct">
+        <MappingFragment StoreEntitySet="colorproduct">
+          <ScalarProperty Name="cop_id" ColumnName="cop_id" />
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="co_id" ColumnName="co_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="qlbdtDbModel.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="cus_id" ColumnName="cus_id" />
+          <ScalarProperty Name="cus_name" ColumnName="cus_name" />
+          <ScalarProperty Name="cus_phone" ColumnName="cus_phone" />
+          <ScalarProperty Name="cus_email" ColumnName="cus_email" />
+          <ScalarProperty Name="cus_address" ColumnName="cus_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderdetails">
+      <EntityTypeMapping TypeName="qlbdtDbModel.orderdetail">
+        <MappingFragment StoreEntitySet="orderdetail">
+          <ScalarProperty Name="ord_id" ColumnName="ord_id" />
+          <ScalarProperty Name="or_id" ColumnName="or_id" />
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="ord_qty" ColumnName="ord_qty" />
+          <ScalarProperty Name="ord_price" ColumnName="ord_price" />
+          <ScalarProperty Name="ord_sale" ColumnName="ord_sale" />
+          <ScalarProperty Name="ord_total" ColumnName="ord_total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="qlbdtDbModel.order">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="or_id" ColumnName="or_id" />
+          <ScalarProperty Name="or_date" ColumnName="or_date" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+          <ScalarProperty Name="or_status" ColumnName="or_status" />
+          <ScalarProperty Name="cus_total" ColumnName="cus_total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="qlbdtDbModel.product">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="cate_id" ColumnName="cate_id" />
+          <ScalarProperty Name="prod_name" ColumnName="prod_name" />
+          <ScalarProperty Name="prod_icon" ColumnName="prod_icon" />
+          <ScalarProperty Name="prod_image" ColumnName="prod_image" />
+          <ScalarProperty Name="prod_reprice" ColumnName="prod_reprice" />
+          <ScalarProperty Name="prod_price" ColumnName="prod_price" />
+          <ScalarProperty Name="prod_warranty" ColumnName="prod_warranty" />
+          <ScalarProperty Name="prod_accessories" ColumnName="prod_accessories" />
+          <ScalarProperty Name="prod_condition" ColumnName="prod_condition" />
+          <ScalarProperty Name="prod_promotion" ColumnName="prod_promotion" />
+          <ScalarProperty Name="prod_status" ColumnName="prod_status" />
+          <ScalarProperty Name="prod_description" ColumnName="prod_description" />
+          <ScalarProperty Name="prod_featured" ColumnName="prod_featured" />
+          <ScalarProperty Name="prod_screen" ColumnName="prod_screen" />
+          <ScalarProperty Name="prod_os" ColumnName="prod_os" />
+          <ScalarProperty Name="prod_camf" ColumnName="prod_camf" />
+          <ScalarProperty Name="prod_camr" ColumnName="prod_camr" />
+          <ScalarProperty Name="prod_cpu" ColumnName="prod_cpu" />
+          <ScalarProperty Name="prod_ram" ColumnName="prod_ram" />
+          <ScalarProperty Name="prod_Imemory" ColumnName="prod_Imemory" />
+          <ScalarProperty Name="prod_Ememory" ColumnName="prod_Ememory" />
+          <ScalarProperty Name="prod_sim" ColumnName="prod_sim" />
+          <ScalarProperty Name="prod_pin" ColumnName="prod_pin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="qlbdtDbModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="us_id" ColumnName="us_id" />
+          <ScalarProperty Name="us_name" ColumnName="us_name" />
+          <ScalarProperty Name="us_email" ColumnName="us_email" />
+          <ScalarProperty Name="us_password" ColumnName="us_password" />
+          <ScalarProperty Name="us_level" ColumnName="us_level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

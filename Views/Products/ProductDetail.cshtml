@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using DACN_SalePhone_Final.Models
+@model DACN_SalePhone_Final.Models.ProductsAndCategories
+@{
+    var prodName = ViewBag.prodName;
+    int prodID = prodName.productID;
+}
+<!-- page -->
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="@Url.Action("Index","Home")">Home</a>
+                    <i>|</i>
+                </li>
+                <li>
+                    <a href="@Url.Action("ProductListByCate","Products",new {cateID = prodName.cateID})">@prodName.cateSeries</a>
+                    <i>|</i>
+                </li>
+                <li>
+                    @prodName.productName
+                </li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //page -->
+<!-- Single Page -->
+<div class="banner-bootom-w3-agileits py-5">
+    <div class="container py-xl-4 py-lg-2">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+            <span>@prodName.productName</span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="row">
+            <div class="col-lg-5 col-md-8 single-right-left ">
+                <div class="grid images_3_of_2">
+                    <div class="flexslider">
+                        <img src="@prodName.productImage" data-imagezoom="true" class="img-fluid" alt="">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+                <h3 class="mb-3">Specification</h3>
+                <p class="mb-3">
+                    <span class="item_price">@prodName.productPrice VND</span>
+                </p>
+                <div class="product-single-w3l">
+                    <p class="my-3">
+                        <i class="far fa-hand-point-right mr-2"></i>
+                        <label>@prodName.productWarranty</label> Manufacturer Warranty
+                    </p>
+                    <ul>
+                        <li class="mb-1">
+                            RAM : @prodName.productRam GB | ROM : @prodName.productImemory GB  | Expandable Upto @prodName.productEmemory GB
+                        </li>
+                        <li class="mb-1">
+                            Display : @prodName.productScreen
+                        </li>
+                        <li class="mb-1">
+                            Rear Camera : @prodName.productCamr
+                        </li>
+                        <li class="mb-1">
+                            Front Camera : @prodName.productCamf
+                        </li>
+                        <li class="mb-1">
+                            Battery : @prodName.productPin mAh
+                        </li>
+                        <li class="mb-1">
+                            CPU : @prodName.productCpu
+                        </li>
+                    </ul>
+                    <p class="my-sm-4 my-3">
+                        <i class="fas fa-retweet mr-3"></i>Net banking & Credit/ Debit/ ATM card
+                    </p>
+                </div>
+                <div class="occasion-cart">
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                        <form action="#" method="post">
+                            <a href="@Url.Action("ShoppingCart", "Shopping" @*, new { id = "cartItem" }*@ )">
+                                <input type="button" name="AddToCart" value="Buy" id="btnAddToCart" class="button btn-ATC" data-itemid="@prodID" itemscope />
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- //Single Page -->
