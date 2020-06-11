@@ -1,4 +1,6 @@
-﻿using DACN_SalePhone_Final.Models;
+﻿using DACN_SalePhone_Final.HttpResponse;
+using DACN_SalePhone_Final.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,7 +9,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using static DACN_SalePhone_Final.Models.ShoppingCart;
+using static DACN_SalePhone_Final.Models.ShoppingCartOrder;
 
 namespace DACN_SalePhone_Final.Controllers
 {
@@ -19,9 +21,9 @@ namespace DACN_SalePhone_Final.Controllers
         // Shopping Cart
         public ActionResult ShoppingCart(int prodID)
         {
-            ShoppingCart shoppingCart = (from p in db.products
+            ShoppingCartOrder shoppingCart = (from p in db.products
                                          where p.prod_id == prodID
-                                         select new ShoppingCart()
+                                         select new ShoppingCartOrder()
                                          {
                                              scProdID = p.prod_id,
                                              orID = 0,
@@ -34,47 +36,29 @@ namespace DACN_SalePhone_Final.Controllers
             ViewBag.shoppingCart = shoppingCart;
             return View(shoppingCart);
         }
-
-        private SqlConnection con;
-
-        // GET: Home
-        public ActionResult AddOrder()
-        {
-
-            return View();
-        }
-        //Post method to add details
         [HttpPost]
-        public ActionResult AddOrder(ShoppingCartOrder ord)
+        public JsonResult ShoppingCart(ShoppingCartOrder shoppingCartOrder)
         {
-            AddDetails(ord);
+            ShoppingCartOrder sco = shoppingCartOrder;
 
-            return View();
+            customer cus = new customer()
+            {
+                cus_name = sco.cusName,
+                cus_phone = sco.cusPhone,
+                cus_email = sco.cusEmail,
+                cus_address = sco.cusAddress
+            };
+            db.customers.Add(cus);
+            db.SaveChanges();
+
+            Response response = new Response()
+            {
+                IsSuccess = true,
+                ErrorCode = "200",
+                Message = "successfully"
+            };
+            return Json(JsonConvert.SerializeObject(response));
         }
 
-        //To Handle connection related activities
-        private void connection()
-        {
-            string constr = ConfigurationManager.ConnectionStrings["qlbdtDbEntities"].ToString();
-            con = new SqlConnection(constr);
-
-        }
-        //To add Records into database 
-        private void AddDetails(ShoppingCartOrder ord)
-        {
-            connection();
-            SqlCommand com = new SqlCommand("AddOrd", con);
-            com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@cusName", ord.cusName);
-            com.Parameters.AddWithValue("@cusPhone", ord.cusPhone);
-            com.Parameters.AddWithValue("@cusEmail", ord.cusEmail);
-            com.Parameters.AddWithValue("@cusAddress", ord.cusAddress);
-            com.Parameters.AddWithValue("@prodID", ord.prodID);
-            com.Parameters.AddWithValue("@prodQty", ord.prodQty);
-            con.Open();
-            com.ExecuteNonQuery();
-            con.Close();
-
-        }
     }
 }

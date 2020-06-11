@@ -134,6 +134,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HttpResponse\Response.cs" />
     <Compile Include="Models\category.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

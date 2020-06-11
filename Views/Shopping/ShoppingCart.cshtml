@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using DACN_SalePhone_Final.Models
-@model DACN_SalePhone_Final.Models.ShoppingCart
+@model DACN_SalePhone_Final.Models.ShoppingCartOrder
 @{
     var shoppingCart = ViewBag.shoppingCart;
 }
@@ -86,28 +86,23 @@
         <div class="checkout-left">
             <div class="address_form_agile mt-sm-5 mt-4">
                 <h4 class="mb-sm-4 mb-3">Order Info</h4>
-                <form action="@Url.Action("AddOrder", "Shopping")" method="post" class="creditly-card-form agileinfo_form order-info" id="order-info">
+                <form action="@Url.Action("ShoppingCart", "Shopping")" method="post" class="creditly-card-form agileinfo_form order-info" id="order-info">
                     <div class="creditly-wrapper wthree, w3_agileits_wrapper">
                         <div class="information-wrapper">
                             <div class="first-row">
                                 <div class="controls form-group">
-                                    <input id="cusName" class="billing-address-name form-control" type="text" name="name" placeholder="Full Name" required="">
+                                    <input id="cusName" class="cusName" type="text" name="cusName" placeholder="Full Name" required="">
                                 </div>
                                 <div class="controls form-group">
-                                    <input id="cusPhone" class="billing-address-name form-control" type="text" name="phone" placeholder="Phone Number" required="">
+                                    <input id="cusPhone" class="cusPhone" type="text" name="cusPhone" placeholder="Phone Number" required="">
                                 </div>
                                 <div class="controls form-group">
-                                    <input id="cusEmail" class="billing-address-name form-control" type="text" name="email" placeholder="Email" required="">
+                                    <input id="cusEmail" class="cusEmail" type="text" name="cusEmail" placeholder="Email" required="">
                                 </div>
                                 <div class="controls form-group">
-                                    <input id="cusAddress" class="billing-address-name form-control" type="text" name="address" placeholder="Address" required="">
+                                    <input id="cusAddress" class="cusAddress" type="text" name="cusAddress" placeholder="Address" required="">
                                 </div>
-                                <div class="controls form-group">
-                                    <input id="prodID" class="billing-address-name form-control" type="text" name="prodID" placeholder="Email" value="@shoppingCart.scProdID" hidden>
-                                </div>
-                                <div class="controls form-group">
-                                    <input id="prodQty" class="billing-address-name form-control" type="text" name="prodQty" placeholder="Address" value="@shoppingCart.scQty" hidden>
-                                </div>
+
                                 @*<div class="w3_agileits_card_number_grids">
             <div class="w3_agileits_card_number_grid_left form-group">
                 <div class="controls">

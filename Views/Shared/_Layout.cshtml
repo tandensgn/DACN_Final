@@ -214,21 +214,35 @@
     <!-- CUSTOM -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#btnAddOrd").click(function () {
-                $.ajax(
-                    {
-                        type: "POST", //HTTP POST Method
-                        url: "Shopping/AddOrder", // Controller/View
-                        data: { //Passing data
-                            cusName: $("#cusName").val(), //Reading text box values using Jquery
-                            cusPhone: $("#cusPhone").val(),
-                            cusEmail: $("#cusEmail").val(),
-                            cusAddress: $("#cusAddress").val(),
-                            prodID: $("#prodID").val(),
-                            prodQty: $("#prodQty").val()
-                        }
-                    });
+        $('#order-info').submit(function (e) {
+            e.preventDefault(); // stop the standard form submission
+            $("#progress").show();
+            //$("#btn-upload").prop("disabled", true);
+            var formdata = new FormData(this);
+            //$("#chapterNumber").prop("disabled", true);
+            //$("#chapterTitle").prop("disabled", true);
+            //$("#fileUpload").prop("disabled", true);
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    var a = JSON.parse(response);
+                    if (a.IsSuccess == true) {
+                        alert("Order successfully!")
+                        //$("#cusName").hide();
+                        //$("#cusPhone").hide();
+                        //$("#cusEmail").hide();
+                        //$("#cusAddress").hide();
+                       
+                    }
+                },
+                error: function (xhr, error, status) {
+                    console.log(error, status);
+                }
             });
         });
     </script>

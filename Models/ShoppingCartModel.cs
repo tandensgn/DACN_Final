@@ -49,12 +49,17 @@ namespace DACN_SalePhone_Final.Models
 
     public class ShoppingCartOrder
     {
+        public int scProdID { set; get; }
+        public int orID { set; get; }
+        public int scQty { set; get; }
+        public string scProdName { set; get; }
+        public int scPrice { set; get; }
+        public int scTotal { set; get; }
+        public string scProdIcon { set; get; }
         public int cusID { set; get; }
         public string cusName { set; get; }
         public int cusPhone { set; get; }
         public string cusEmail { set; get; }
         public string cusAddress { set; get; }
-        public int prodID { set; get; }
-        public int prodQty { set; get; }
     }
 }
