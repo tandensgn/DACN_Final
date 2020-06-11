@@ -54,10 +54,11 @@
             <PropertyRef Name="or_id" />
           </Key>
           <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cus_id" Type="int" Nullable="false" />
           <Property Name="or_date" Type="datetime" Nullable="false" />
           <Property Name="or_number" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="or_status" Type="int" Nullable="false" />
-          <Property Name="cus_total" Type="int" Nullable="false" />
+          <Property Name="or_status" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="or_total" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="products">
           <Key>
@@ -122,6 +123,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_order_customers">
+          <End Role="customers" Type="Self.customers" Multiplicity="1" />
+          <End Role="orders" Type="Self.orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="cus_id" />
+            </Principal>
+            <Dependent Role="orders">
+              <PropertyRef Name="cus_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_orderdetail_orders">
           <End Role="orders" Type="Self.orders" Multiplicity="1" />
           <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -174,6 +187,10 @@
           <AssociationSet Name="fk_colorproduct_products" Association="Self.fk_colorproduct_products">
             <End Role="products" EntitySet="products" />
             <End Role="colorproduct" EntitySet="colorproduct" />
+          </AssociationSet>
+          <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="orders" EntitySet="orders" />
           </AssociationSet>
           <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
             <End Role="orders" EntitySet="orders" />
@@ -228,6 +245,7 @@
           <Property Name="cus_phone" Type="Int32" Nullable="false" />
           <Property Name="cus_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cus_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="orders" Relationship="Self.fk_order_customers" FromRole="customers" ToRole="orders" />
         </EntityType>
         <EntityType Name="orderdetail">
           <Key>
@@ -248,10 +266,12 @@
             <PropertyRef Name="or_id" />
           </Key>
           <Property Name="or_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cus_id" Type="Int32" Nullable="false" />
           <Property Name="or_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="or_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="or_status" Type="Int32" Nullable="false" />
-          <Property Name="cus_total" Type="Int32" Nullable="false" />
+          <Property Name="or_status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="or_total" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="customer" Relationship="Self.fk_order_customers" FromRole="orders" ToRole="customers" />
           <NavigationProperty Name="orderdetails" Relationship="Self.fk_orderdetail_orders" FromRole="orders" ToRole="orderdetail" />
         </EntityType>
         <EntityType Name="product">
@@ -332,6 +352,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_order_customers">
+          <End Role="customers" Type="Self.customer" Multiplicity="1" />
+          <End Role="orders" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="cus_id" />
+            </Principal>
+            <Dependent Role="orders">
+              <PropertyRef Name="cus_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_orderdetail_orders">
           <End Role="orders" Type="Self.order" Multiplicity="1" />
           <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -376,6 +408,10 @@
           <AssociationSet Name="fk_colorproduct_products" Association="Self.fk_colorproduct_products">
             <End Role="products" EntitySet="products" />
             <End Role="colorproduct" EntitySet="colorproducts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="orders" EntitySet="orders" />
           </AssociationSet>
           <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
             <End Role="orders" EntitySet="orders" />
@@ -445,10 +481,11 @@
             <EntityTypeMapping TypeName="qlbdtDbModel.order">
               <MappingFragment StoreEntitySet="orders">
                 <ScalarProperty Name="or_id" ColumnName="or_id" />
+                <ScalarProperty Name="cus_id" ColumnName="cus_id" />
                 <ScalarProperty Name="or_date" ColumnName="or_date" />
                 <ScalarProperty Name="or_number" ColumnName="or_number" />
                 <ScalarProperty Name="or_status" ColumnName="or_status" />
-                <ScalarProperty Name="cus_total" ColumnName="cus_total" />
+                <ScalarProperty Name="or_total" ColumnName="or_total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

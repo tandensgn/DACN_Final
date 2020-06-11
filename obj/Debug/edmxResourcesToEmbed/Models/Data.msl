@@ -54,10 +54,11 @@
       <EntityTypeMapping TypeName="qlbdtDbModel.order">
         <MappingFragment StoreEntitySet="orders">
           <ScalarProperty Name="or_id" ColumnName="or_id" />
+          <ScalarProperty Name="cus_id" ColumnName="cus_id" />
           <ScalarProperty Name="or_date" ColumnName="or_date" />
           <ScalarProperty Name="or_number" ColumnName="or_number" />
           <ScalarProperty Name="or_status" ColumnName="or_status" />
-          <ScalarProperty Name="cus_total" ColumnName="cus_total" />
+          <ScalarProperty Name="or_total" ColumnName="or_total" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

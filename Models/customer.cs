@@ -14,10 +14,19 @@ namespace DACN_SalePhone_Final.Models
     
     public partial class customer
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public customer()
+        {
+            this.orders = new HashSet<order>();
+        }
+    
         public int cus_id { get; set; }
         public string cus_name { get; set; }
         public int cus_phone { get; set; }
         public string cus_email { get; set; }
         public string cus_address { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<order> orders { get; set; }
     }
 }

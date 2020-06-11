@@ -89,8 +89,8 @@
                 <div class="occasion-cart">
                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
                         <form action="#" method="post">
-                            <a href="@Url.Action("ShoppingCart", "Shopping" @*, new { id = "cartItem" }*@ )">
-                                <input type="button" name="AddToCart" value="Buy" id="btnAddToCart" class="button btn-ATC" data-itemid="@prodID" itemscope />
+                            <a href="@Url.Action("ShoppingCart", "Shopping" , new { prodId = prodID } )">
+                                <input type="button" name="AddToCart" value="Buy" id="btnAddToCart" class="button btn-ATC" itemscope />
                             </a>
                         </form>
                     </div>

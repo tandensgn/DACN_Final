@@ -49,10 +49,11 @@
       <PropertyRef Name="or_id" />
     </Key>
     <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cus_id" Type="int" Nullable="false" />
     <Property Name="or_date" Type="datetime" Nullable="false" />
     <Property Name="or_number" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="or_status" Type="int" Nullable="false" />
-    <Property Name="cus_total" Type="int" Nullable="false" />
+    <Property Name="or_status" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="or_total" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="products">
     <Key>
@@ -117,6 +118,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_order_customers">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="cus_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="cus_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_orderdetail_orders">
     <End Role="orders" Type="Self.orders" Multiplicity="1" />
     <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
@@ -169,6 +182,10 @@
     <AssociationSet Name="fk_colorproduct_products" Association="Self.fk_colorproduct_products">
       <End Role="products" EntitySet="products" />
       <End Role="colorproduct" EntitySet="colorproduct" />
+    </AssociationSet>
+    <AssociationSet Name="fk_order_customers" Association="Self.fk_order_customers">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="orders" EntitySet="orders" />
     </AssociationSet>
     <AssociationSet Name="fk_orderdetail_orders" Association="Self.fk_orderdetail_orders">
       <End Role="orders" EntitySet="orders" />

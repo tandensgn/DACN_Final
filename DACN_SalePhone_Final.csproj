@@ -171,6 +171,7 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductsModel.cs" />
+    <Compile Include="Models\ShoppingCartModel.cs" />
     <Compile Include="Models\user.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -203,6 +204,8 @@
     <Content Include="Assets\client\images\image1.png" />
     <Content Include="Assets\client\images\iphone11pro_image.jpg" />
     <Content Include="Assets\client\images\iphone11pro_logo.png" />
+    <Content Include="Assets\client\images\iphone8_image.jpg" />
+    <Content Include="Assets\client\images\iphone8_logo.png" />
     <Content Include="Assets\client\images\k1.jpg" />
     <Content Include="Assets\client\images\k2.jpg" />
     <Content Include="Assets\client\images\k3.jpg" />
@@ -252,6 +255,8 @@
     <Content Include="Assets\client\images\sii2.jpg" />
     <Content Include="Assets\client\images\sii3.jpg" />
     <Content Include="Assets\client\images\user.jpg" />
+    <Content Include="Assets\client\images\vsmartActive3_image.jpg" />
+    <Content Include="Assets\client\images\vsmartActive3_logo.png" />
     <Content Include="Assets\client\js\bootstrap.js" />
     <Content Include="Assets\client\js\creditly.js" />
     <Content Include="Assets\client\js\creditly2.js" />
@@ -278,8 +283,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\Data.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Data.Context.cs</LastGenOutput>
       <DependentUpon>Data.edmx</DependentUpon>
+      <LastGenOutput>Data.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Data.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

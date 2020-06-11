@@ -698,16 +698,16 @@ h3.tittle-w3l {
 }
 
 .inner-men-cart-pro .link-product-add-cart {
-    width: 51%;
+    width: 66%;
     top: 0;
-    left: 24%;
+    left: 17%;
     margin: 0 auto;
     position: absolute;
     transition: all 0.5s ease-out 0s;
 }
 
 .men-thumb-item:hover .inner-men-cart-pro .link-product-add-cart {
-    top: 81%;
+    top: 45%;
 }
 
 .link-product-add-cart:hover {
@@ -2189,6 +2189,9 @@ div#testimonials h4.m-title {
 /* Custom Style */
 .agileinfo-ads-display {
     width: 100%
+}
+.product-men{
+    padding-bottom:50px;
 }
 /*-- placeholder-color 
 

@@ -193,45 +193,49 @@
         $('.value-plus').on('click', function () {
             var divUpd = $(this).parent().find('.value'),
                 newVal = parseInt(divUpd.text(), 10) + 1;
-            divUpd.text(newVal);
+            if (newVal >= 1) divUpd.text(newVal);
+            var scPrice = $(this).data("itemid");
+
+            var scTotal = scPrice * newVal;
+            $('.price-update').text(scTotal + "VND");
         });
 
         $('.value-minus').on('click', function () {
             var divUpd = $(this).parent().find('.value'),
                 newVal = parseInt(divUpd.text(), 10) - 1;
             if (newVal >= 1) divUpd.text(newVal);
+            var scPrice = $(this).data("itemid");
+
+            var scTotal = scPrice * newVal;
+            $('.price-update').text(scTotal + "VND");
         });
     </script>
     <!--quantity-->
-    <!--close button-->
+    <!-- CUSTOM -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-        $(document).ready(function (c) {
-            $('.close1').on('click', function (c) {
-                $('.rem1').fadeOut('slow', function (c) {
-                    $('.rem1').remove();
-                });
+        $(document).ready(function () {
+            $("#btnAddOrd").click(function () {
+                $.ajax(
+                    {
+                        type: "POST", //HTTP POST Method
+                        url: "Shopping/AddOrder", // Controller/View
+                        data: { //Passing data
+                            cusName: $("#cusName").val(), //Reading text box values using Jquery
+                            cusPhone: $("#cusPhone").val(),
+                            cusEmail: $("#cusEmail").val(),
+                            cusAddress: $("#cusAddress").val(),
+                            prodID: $("#prodID").val(),
+                            prodQty: $("#prodQty").val()
+                        }
+                    });
             });
         });
     </script>
-    <script>
-        $(document).ready(function (c) {
-            $('.close2').on('click', function (c) {
-                $('.rem2').fadeOut('slow', function (c) {
-                    $('.rem2').remove();
-                });
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function (c) {
-            $('.close3').on('click', function (c) {
-                $('.rem3').fadeOut('slow', function (c) {
-                    $('.rem3').remove();
-                });
-            });
-        });
-    </script>
-    <!--//close button-->
+
+
+
+
     <!-- //js-files -->
 
 </body>
