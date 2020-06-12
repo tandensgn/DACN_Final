@@ -40,6 +40,7 @@ namespace DACN_SalePhone_Final.Controllers
         public JsonResult ShoppingCart(ShoppingCartOrder shoppingCartOrder)
         {
             ShoppingCartOrder sco = shoppingCartOrder;
+            var date = DateTime.Now;
 
             customer cus = new customer()
             {
@@ -51,11 +52,33 @@ namespace DACN_SalePhone_Final.Controllers
             db.customers.Add(cus);
             db.SaveChanges();
 
+            order or = new order()
+            {
+                cus_id = cus.cus_id,
+                or_date = date,
+                or_status = "Order Receiving",
+                or_total = sco.scQty * sco.scPrice
+            };
+            db.orders.Add(or);
+            db.SaveChanges();
+
+            orderdetail ord = new orderdetail()
+            {
+                or_id = or.or_id,
+                prod_id = sco.scProdID,
+                ord_qty = sco.scQty,
+                ord_price = sco.scPrice,
+                ord_sale = 0,
+                ord_total = sco.scQty*sco.scPrice
+            };
+            db.orderdetails.Add(ord);
+            db.SaveChanges();
+
             Response response = new Response()
             {
                 IsSuccess = true,
                 ErrorCode = "200",
-                Message = "successfully"
+                Message = "Order successfully"
             };
             return Json(JsonConvert.SerializeObject(response));
         }

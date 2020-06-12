@@ -58,7 +58,6 @@
     <Property Name="or_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="cus_id" Type="Int32" Nullable="false" />
     <Property Name="or_date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="or_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="or_status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="or_total" Type="Int32" Nullable="false" />
     <NavigationProperty Name="customer" Relationship="Self.fk_order_customers" FromRole="orders" ToRole="customers" />

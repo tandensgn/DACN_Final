@@ -344,6 +344,7 @@
     <Content Include="Views\Products\ProductListByCate.cshtml" />
     <Content Include="Views\Products\ProductDetail.cshtml" />
     <Content Include="Views\Shopping\ShoppingCart.cshtml" />
+    <Content Include="Views\Shared\_modal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

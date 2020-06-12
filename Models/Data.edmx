@@ -56,7 +56,6 @@
           <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cus_id" Type="int" Nullable="false" />
           <Property Name="or_date" Type="datetime" Nullable="false" />
-          <Property Name="or_number" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="or_status" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="or_total" Type="int" Nullable="false" />
         </EntityType>
@@ -268,7 +267,6 @@
           <Property Name="or_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cus_id" Type="Int32" Nullable="false" />
           <Property Name="or_date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="or_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="or_status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="or_total" Type="Int32" Nullable="false" />
           <NavigationProperty Name="customer" Relationship="Self.fk_order_customers" FromRole="orders" ToRole="customers" />
@@ -483,7 +481,6 @@
                 <ScalarProperty Name="or_id" ColumnName="or_id" />
                 <ScalarProperty Name="cus_id" ColumnName="cus_id" />
                 <ScalarProperty Name="or_date" ColumnName="or_date" />
-                <ScalarProperty Name="or_number" ColumnName="or_number" />
                 <ScalarProperty Name="or_status" ColumnName="or_status" />
                 <ScalarProperty Name="or_total" ColumnName="or_total" />
               </MappingFragment>

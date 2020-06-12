@@ -23,7 +23,6 @@ namespace DACN_SalePhone_Final.Models
         public int or_id { get; set; }
         public int cus_id { get; set; }
         public System.DateTime or_date { get; set; }
-        public string or_number { get; set; }
         public string or_status { get; set; }
         public int or_total { get; set; }
     

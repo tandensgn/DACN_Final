@@ -51,7 +51,6 @@
     <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cus_id" Type="int" Nullable="false" />
     <Property Name="or_date" Type="datetime" Nullable="false" />
-    <Property Name="or_number" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="or_status" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="or_total" Type="int" Nullable="false" />
   </EntityType>
