@@ -1,22 +1,20 @@
-﻿@model IEnumerable<DACN_SalePhone_Final.Models.CategoriesList>
-
-<!-- top-header -->
+﻿<!-- top-header -->
 <div class="agile-main-top">
     <div class="container-fluid">
         <div class="row main-top-w3l py-2">
-            <div class="col-lg-3 header-most-top">
+            <div class="col-lg-2 header-most-top">
                 <p class="text-white text-lg-left text-center">
 
                 </p>
             </div>
-            <div class="col-lg-8 header-right mt-lg-0 mt-2">
+            <div class="col-lg-10 header-right mt-lg-0 mt-2">
                 <!-- header lists -->
                 <ul>
                     @*<li class="text-center border-right text-white">
-                        <a class="play-icon popup-with-zoom-anim text-white" href="#small-dialog1">
-                            <i class="fas fa-map-marker mr-2"></i>Select Location
-                        </a>
-                    </li>*@
+                            <a class="play-icon popup-with-zoom-anim text-white" href="#small-dialog1">
+                                <i class="fas fa-map-marker mr-2"></i>Select Location
+                            </a>
+                        </li>*@
                     <li class="text-center border-right text-white">
                         <a class="text-white" href="https://www.instagram.com/">
                             <i class="fab fa-instagram"></i> Instagram
@@ -159,7 +157,7 @@
             <!-- logo -->
             <div class="col-md-3 logo_agile">
                 <h1 class="text-center">
-                    <a href="Index" class="font-weight-bold font-italic">
+                    <a href="@Url.Action("Index","Home")" class="font-weight-bold font-italic">
                         <img src="~/Assets/client/images/logo.png" alt=" " class="img-fluid"> SALE PHONE
                     </a>
                 </h1>
@@ -169,7 +167,7 @@
             <div class="col-md-9 header mt-4 mb-md-0 mb-4">
                 <div class="row">
                     <!-- search -->
-                    <div class="col-10 agileits_search">
+                    <div class="col-12 agileits_search">
                         <form class="form-inline" action="#" method="post">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
                             <button class="btn my-2 my-sm-0" type="submit">Search</button>
@@ -177,21 +175,21 @@
                     </div>
                     <!-- //search -->
                     <!-- cart details -->
-                    <div class="col-2 top_nav_right text-center mt-sm-0 mt-2">
+                    @*<div class="col-2 top_nav_right text-center mt-sm-0 mt-2">
                         <div class="wthreecartaits wthreecartaits2 cart cart box_1">
                             <form action="#" method="post" class="last">
                                 <input type="hidden" name="cmd" value="_cart">
                                 <input type="hidden" name="display" value="1">
-                                @*<a href="@Url.Action("ShoppingCart", "Shopping")" type="button" name="btn_shoppingcart" class="btn w3view-cart" value="">
+                                <a href="@Url.Action("ShoppingCart", "Shopping")" type="button" name="btn_shoppingcart" class="btn w3view-cart" value="">
                                     <i class="fas fa-cart-arrow-down"></i>
-                                </a>*@
-                                @*<a href="" class="btn w3view-cart" type="button" name="btn_shoppingcart" value="">
-            <i class="fas fa-cart-arrow-down" style="color:white"></i>
-            <span id="cartItem"></span>
-        </a>*@
+                                </a>
+                                <a href="" class="btn w3view-cart" type="button" name="btn_shoppingcart" value="">
+                                    <i class="fas fa-cart-arrow-down" style="color:white"></i>
+                                    <span id="cartItem"></span>
+                                </a>
                             </form>
                         </div>
-                    </div>
+                    </div>*@
                     <!-- //cart details -->
                 </div>
             </div>

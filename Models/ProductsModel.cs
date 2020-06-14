@@ -72,4 +72,11 @@ namespace DACN_SalePhone_Final.Models
         public string productPin { set; get; }
         public string cateSeries { set; get; }
     }
+
+    public class IndexProducts
+    {
+        public IEnumerable<product> indexProduct1 { get; set; }
+        public IEnumerable<product> indexProduct2 { get; set; }
+    }
+
 }

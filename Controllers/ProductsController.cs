@@ -13,7 +13,7 @@ namespace DACN_SalePhone_Final.Controllers
         // GET: Products
         public ActionResult ProductListByCate(int cateID)
         {
-            var productInfo = (from i in db.products
+            var productInfo = from i in db.products
                                where i.cate_id == cateID
                                select new ProductsInfo()
                                {
@@ -41,7 +41,7 @@ namespace DACN_SalePhone_Final.Controllers
                                    productEmemory = i.prod_Ememory,
                                    productSim = i.prod_sim,
                                    productPin = i.prod_pin,
-                               }).Take(4);
+                               };
             var categoriesList = from i in db.categories
                                  where i.cate_id == cateID
                                  select new CategoriesList()
